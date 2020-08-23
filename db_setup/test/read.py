@@ -1,6 +1,6 @@
 import xlrd
 
-excel_link = r'A:\prod.xlsx'
+excel_link = r'A:\task\prod.xlsx'
 
 
 def reader(excel_link, table_name):
