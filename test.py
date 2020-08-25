@@ -1,38 +1,21 @@
+a = 'у поликарпа два карася три Карпа'
+b = 'карпа'
+
 from fuzzywuzzy import fuzz
 from fuzzywuzzy import process
+print(fuzz.partial_ratio(a,b))
 
 
-a = ['Абслют', 'Обсалют']
-b = ['Абсолют', '"Абсолют”']
-c = ['Alpen Gold', 'Alpen/Gold']
-d = ['Айсберри', 'Айс берри']
+import jellyfish
+print(jellyfish.damerau_levenshtein_distance(a,b))
+print(jellyfish.hamming_distance(a,b))
+print(jellyfish.jaro_winkler_similarity(a,b))
 
-def eva(x, y):
-    a = fuzz.partial_ratio(x, y)
-    print(a)
-    b = fuzz.ratio(x, y)
-    print(b)
-    c = fuzz.WRatio(x, y)
-    print(c)
-    print(' ')
+
+print(a.split())
+if b.lower() in a.lower().split():
+    print('111111111111111111111111111111')
     
-def eva2(x, y):
-    a = fuzz.partial_ratio(x, y)
-    print(a)
-    b = fuzz.ratio(x, y)
-    print(b)
-    c = fuzz.WRatio(x, y)
-    print(c)
-    print('===================== ')
-    
-eva(a[0], a[1])
-eva2(a[1], a[0])
-eva(b[0], b[1])
-eva2(b[1], b[0])
-eva(c[0], c[1])
-eva2(c[1], c[0])
-eva(d[0], d[1])
-eva2(d[1], d[0])
-
-
-
+c = [1,2,3,4,5]
+if 2 in c:
+    print('11111111111111111111111111111')

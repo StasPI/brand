@@ -7,7 +7,7 @@ data_list = []
 with open(FILENAME, "r", newline="") as file:
     reader = csv.reader(file)
     for row in reader:
-        data_list.append(row)
+        data_list.append(row[:-1])
 
 with open('test_file.json', 'w') as write_file:
     data = {
