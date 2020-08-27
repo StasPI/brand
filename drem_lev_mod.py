@@ -1,40 +1,34 @@
 import json
-import asyncio
-from db_setup.db_connect import EngineDB
-
 ''' data '''
 with open('test_file.json', 'r') as read_file:
     json_data = json.load(read_file)
 
-data = json_data['data']
-
-''' acync brand db '''
-comm = '''SELECT name FROM brand'''
-cursor = EngineDB().run(comm)
-loop = asyncio.get_event_loop()
-brand = loop.run_until_complete(cursor)
-
-
 ''' fuzzywuzzy'''
 from fuzzywuzzy import fuzz
-from fuzzywuzzy import process
 
-test_list = []
 
-def eva(x, y):
-    return fuzz.partial_ratio(x, y)
+def fw(json_data):
+    data = tuple(json_data['data'])
+    brand = tuple(json_data['brand'])
+        
+    for row_data in data:
+        for row_brand in brand:
+            row_data_len = len(row_data)
+            if row_data_len < 2:
+                pass
+            else:
+                if row_data_len == 2:
+                    brand_name = row_brand[0].lower() #0 - Позиция имени бренда
+                    description = row_data[1].lower() #1 - Позиция описания/наменклатуры
 
-def fw():
-    count = 0
-    for i in data:
-        if 'durex'.lower() in i[1].lower().split():
-            count += 1
-        elif eva(i[1], 'durex' ) == 100:
-            count += 1
-    print(count)
+                    if len(row_data) == 2:
+                        if brand_name in description.split():
+                            row_data.append('')
+                        elif fuzz.partial_ratio(description, brand_name) == 100:
+                            row_data.append('')
 
 
 ''' profiler '''
 import cProfile
 
-cProfile.run('fw()')
+cProfile.run('fw(json_data)')
