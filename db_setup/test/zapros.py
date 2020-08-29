@@ -11,18 +11,18 @@ with open(FILENAME, "r", newline="") as file:
             count += 1
             data_list.append(row[:-1])
 
-print(len(data_list))
+print(data_list)
 
 
 FILENAME = r"A:\task\brand.csv"
 brand_list = []
-with open(FILENAME, "r", newline="") as file:
+with open(FILENAME, "r", newline="", encoding='utf-8') as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
         brand_list.append(row)
 
-print(len(brand_list))
+print(brand_list)
 
 
 
