@@ -1,0 +1,9 @@
+postgres:
+    type_db: postgresql
+    driver: psycopg2
+    user: postgres
+    password: testpass
+    host: localhost
+    port: 5432
+    database: lev
+app:

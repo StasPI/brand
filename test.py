@@ -1,32 +1,50 @@
+from queue import Queue
+from threading import Thread
+import csv
+import json
+import requests
+# q = Queue()
+# n_threads = 2
+# buffer_size = 1024
+ 
+
+FILENAME = r"A:\task\prod.csv"
+data_list = []
+with open(FILENAME, "r", newline="") as file:
+    count = 0
+    reader = csv.reader(file)
+    for row in reader:
+        if count != 5:
+            count += 1
+            data_list.append(row[:-1])
+
+ 
+FILENAME = r"A:\task\brand.csv"
+brand_list = []
+with open(FILENAME, "r", newline="", encoding='utf-8') as file:
+    count = 0
+    reader = csv.reader(file)
+    for row in reader:
+        brand_list.append(row)
+        
+        
+brand_list =  json.dumps(brand_list, ensure_ascii=False)
+data_list = json.dumps(data_list, ensure_ascii=False)
+ip = json.dumps('primer', ensure_ascii=False)
+        
+payload = {
+    "brand": brand_list,
+    "data": data_list,
+    'ip': 'primer'
+}
 
 
-a = 'vet'
-b = 'veet'
+# payload = {'mess': 'eg'}
+json_data = json.dumps(payload, ensure_ascii=False)
 
-# from fuzzywuzzy import fuzz
-# from fuzzywuzzy import process
+# r = requests.get(f'http://127.0.0.1:8000/brand/{brand_list}')
+r = requests.post("http://localhost:8080/find", data=payload)
 
-# print(fuzz.partial_ratio(a,b))
-
-
-from rapidfuzz import fuzz
-print(int(fuzz.partial_ratio(a,b)))
-
-a = int(fuzz.partial_ratio(a,b))
-
-if 99 <= a <= 101:
-    print('op')
-
-# import jellyfish
-# print(jellyfish.damerau_levenshtein_distance(a,b))
-# print(jellyfish.hamming_distance(a,b))
-# print(jellyfish.jaro_winkler_similarity(a,b))
-
-
-# print(a.split())
-# if b.lower() in a.lower().split():
-#     print('111111111111111111111111111111')
-    
-# c = [1,2,3,4,5]
-# if 2 in c:
-#     print('11111111111111111111111111111')
+# r = requests.get(f'http://127.0.0.1:8000/brand/{payload}')
+print(r.text[1:200])
+print(r.json)
