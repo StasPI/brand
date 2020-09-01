@@ -1,30 +1,43 @@
 import json
 
 from rapidfuzz import fuzz
-
-''' rapidfuzz'''
+'''
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Main processing module.
+'''
 
 
 class BrandScanner():
+    ''' 
+    Main processing class
+    
+    Uses direct validation first to avoid the overhead of a partial matching 
+    algorithm.
+    Then, all lines in which the required information was not found during 
+    direct verification are sent for verification by the partial matching 
+    algorithm.
+    '''
     def __init__(self, brand, data):
         self.brand = brand
         self.data = data
 
     def retrieving_objects(self):
-        # Принимает объект json, извлекает нужные данные с небольшим форматированием
-        # Возвращает готовые к работе объекты описаний товаров и брендов
-        # порядок подачи данных важен! 0 - название организации. 1 - наименование товара. 2 - id.
-        # порядок подачи брендов важен! 0 - название бренда. 1 - id.
+        # Accepts a json object, retrieves the data you want with a little formatting
+        # Returns ready-to-use product and brand description objects
+        # the order of data submission is important! 0 is the name of the organization.
+        # 1 - product name. 2 - id.
+        # brand submission order is important! 0 is the brand name. 1 - id.
         self.data = tuple(self.data)
-        # 0 - Позиция имени бренда
+        # 0 - Brand Name Position
         self.brand = tuple(brand_name[0].lower() for brand_name in self.brand)
         return self.data, self.brand
 
     @staticmethod
     def fast_string_comparison(brand, product_name):
-        # Принимает строчные списковые данные бренда и описания товара
-        # Проверяет в лоб вхождение из списка брендов список слов в описании товара
-        # Возвращает список с совпадениями и список без совпадений
+        # Accepts inline listing brand data and product descriptions
+        # Performs a direct check for entry from the list of brands list of words in 
+        # the product description
+        # Returns a list with matches and a list without matches
         product_name = product_name.split()
         exact_match_brand = list(set(brand) & set(product_name))
         exclusive_matches_brand = tuple(set(brand) ^ set(exact_match_brand))
@@ -60,7 +73,7 @@ class BrandScanner():
 
     def handler(self, row_data):
         probable_match_brand = []
-        # 1 - Позиция описания/наменклатуры
+        # 1 - Description / Nomenclature Position
         product_name = row_data[1].lower()
         exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(
             self.brand, product_name)
@@ -68,10 +81,10 @@ class BrandScanner():
             similarity_number = int(
                 fuzz.partial_ratio(product_name, brand_name))
             if similarity_number >= 90:
-                # все точные совпадения
+                # All exact matches
                 exact_match_brand.append(brand_name)
             elif 76 <= similarity_number <= 89:
-                # все возможные совпадения
+                # All possible matches
                 probable_match_brand.append(brand_name)
         row_data.append(exact_match_brand)
         row_data.append(probable_match_brand)

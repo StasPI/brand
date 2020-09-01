@@ -1,9 +1,13 @@
-postgres:
-    type_db: postgresql
-    driver: psycopg2
-    user: postgres
-    password: testpass
-    host: localhost
-    port: 5432
-    database: lev
 app:
+    host : 0.0.0.0
+    port : 8080
+    client_max_size : 1024
+    max_size_degree : 8
+postgres:
+    type_db : postgresql
+    driver : psycopg2
+    user : postgres
+    password : testpass
+    host : localhost
+    port : 5432
+    database : lev

@@ -1,10 +1,7 @@
 import asyncio
 import asyncpg
 import yaml
-
-with open('config.yaml') as read_file:
-    conf = yaml.safe_load(read_file)
-
+from settings import config
 
 class EngineDB():
     ''' подключение к бд с передачей запроса в экземпляр класса'''
@@ -12,11 +9,11 @@ class EngineDB():
         pass
 
     async def run(self, command):
-        conn = await asyncpg.connect(user=conf['user'],
-                                     password=conf['password'],
-                                     database=conf['database'],
-                                     host=conf['host'],
-                                     port=conf['port'])
+        conn = await asyncpg.connect(user=config['postgres']['user'],
+                                     password=config['postgres']['password'],
+                                     database=config['postgres']['database'],
+                                     host=config['postgres']['host'],
+                                     port=config['postgres']['port'])
         values = await conn.fetch(command)
         await conn.close()
         return values
