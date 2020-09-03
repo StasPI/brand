@@ -4,7 +4,7 @@ import csv
 import json
 import requests
 q = Queue()
-n_threads = 2
+n_threads = 300
  
 ''' ''' 
 FILENAME = r"A:\task\brand.csv"
@@ -22,7 +22,7 @@ with open(FILENAME, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 100000:
+        if count != 5000:
             count += 1
             data_list.append(row[:-1])
 data_list = json.dumps(data_list, ensure_ascii=False)           
@@ -32,10 +32,20 @@ with open(FILENAME, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 5:
+        if count != 5000:
             count += 1
             data_list1.append(row[:-1])
 data_list1 = json.dumps(data_list1, ensure_ascii=False)            
+''' '''
+data_list2 = []
+with open(FILENAME, "r", newline="") as file:
+    count = 0
+    reader = csv.reader(file)
+    for row in reader:
+        if count != 5000:
+            count += 1
+            data_list2.append(row[:-1])
+data_list2 = json.dumps(data_list2, ensure_ascii=False)   
 ''' '''
 ip = json.dumps('primer', ensure_ascii=False)
         
@@ -49,6 +59,11 @@ payload1 = {
     "data": data_list1,
     'ip': 'da'
 }
+payload2 = {
+    "brand": brand_list,
+    "data": data_list2,
+    'ip': 'da'
+}
 
 
 
@@ -58,20 +73,30 @@ payload1 = {
 # print(r.text[1:200])
 # print(r.json)
 
-
+ct = 0
 def download():
     global q
+    global ct
     pay = q.get()
     r = requests.post("http://localhost:8080/find", data=pay)
-    print(r.text[1:200])
+    # print(r.text[1:200])
     print(r.json)
+    ct += 1
+    print(ct)
     q.task_done()
 
 if __name__ == "__main__":
     pays = [
         payload1,
         payload,
-    ]
+        payload2,
+        payload1,
+        payload,
+        payload2,
+        payload2,
+        payload1,
+        payload,
+    ] * 10
     # fill the queue with all the urls
     for pay in pays:
         q.put(pay)
