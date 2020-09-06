@@ -45,6 +45,7 @@ async def handle_get(request):
                     'data': data_info,
                     'ip': ip_info}
     return web.Response(text=json.dumps(response_obj))
+    # return web.Response(text=response_obj)
 
 
 async def handle_post(request):
@@ -74,7 +75,7 @@ logging.basicConfig(level=logging.DEBUG,
 app = web.Application(
     client_max_size=config['app']['client_max_size']**config['app']
     ['max_size_degree'])    # imposed a restriction on the post method
-app.router.add_post('/', handle_get)
+app.router.add_get('/', handle_get)
 app.router.add_post('/find', handle_post)
 
 '''Run.'''

@@ -22,7 +22,7 @@ with open(FILENAME, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 5000:
+        if count != 100:
             count += 1
             data_list.append(row[:-1])
 data_list = json.dumps(data_list, ensure_ascii=False)           
@@ -67,44 +67,46 @@ payload2 = {
 
 
 
+
+# r = requests.post("http://localhost:32768/find", data=payload)
 # r = requests.post("http://localhost:8080/find", data=payload)
+r = requests.get("http://localhost:8080/")
+# r = requests.get(f'http://127.0.0.1:8000/brand/{payload}')
+print(r.text)
+print(r.json)
 
-# # r = requests.get(f'http://127.0.0.1:8000/brand/{payload}')
-# print(r.text[1:200])
-# print(r.json)
+# ct = 0
+# def download():
+#     global q
+#     global ct
+#     pay = q.get()
+#     r = requests.post("http://localhost:8080/find", data=pay)
+#     # print(r.text[1:200])
+#     print(r.json)
+#     ct += 1
+#     print(ct)
+#     q.task_done()
 
-ct = 0
-def download():
-    global q
-    global ct
-    pay = q.get()
-    r = requests.post("http://localhost:8080/find", data=pay)
-    # print(r.text[1:200])
-    print(r.json)
-    ct += 1
-    print(ct)
-    q.task_done()
-
-if __name__ == "__main__":
-    pays = [
-        payload1,
-        payload,
-        payload2,
-        payload1,
-        payload,
-        payload2,
-        payload2,
-        payload1,
-        payload,
-    ] * 10
-    # fill the queue with all the urls
-    for pay in pays:
-        q.put(pay)
-    # start the threads
-    for t in range(n_threads):
-        worker = Thread(target=download)
-        # daemon thread means a thread that will end when the main thread ends
-        worker.daemon = True
-        worker.start()
-    # wait until the queue is empty
-    q.join()
+# if __name__ == "__main__":
+#     pays = [
+#         payload1,
+#         payload,
+#         payload2,
+#         payload1,
+#         payload,
+#         payload2,
+#         payload2,
+#         payload1,
+#         payload,
+#     ] * 10
+#     # fill the queue with all the urls
+#     for pay in pays:
+#         q.put(pay)
+#     # start the threads
+#     for t in range(n_threads):
+#         worker = Thread(target=download)
+#         # daemon thread means a thread that will end when the main thread ends
+#         worker.daemon = True
+#         worker.start()
+#     # wait until the queue is empty
+#     q.join()
