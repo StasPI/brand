@@ -38,3 +38,11 @@ aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:07:57:04 +0000] "GET / HTTP/1.1" 
 asyncio - DEBUG - Using proactor: IocpProactor
 asyncio - DEBUG - Using proactor: IocpProactor
 aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:08:01:56 +0000] "GET / HTTP/1.1" 200 412 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:16:34:02 +0000] "POST /find HTTP/1.1" 200 12071 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:16:34:12 +0000] "POST /find HTTP/1.1" 200 12071 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:16:34:22 +0000] "POST /find HTTP/1.1" 200 12071 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:57:50 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:58:16 +0000] "POST /find HTTP/1.1" 200 16944714 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:59:23 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"

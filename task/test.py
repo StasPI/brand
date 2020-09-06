@@ -4,10 +4,10 @@ import csv
 import json
 import requests
 q = Queue()
-n_threads = 300
+n_threads = 10
  
 ''' ''' 
-FILENAME = r"A:\task\brand.csv"
+FILENAME = r"A:\git\brand\task\brand.csv"
 brand_list = []
 with open(FILENAME, "r", newline="", encoding='utf-8') as file:
     count = 0
@@ -16,13 +16,13 @@ with open(FILENAME, "r", newline="", encoding='utf-8') as file:
         brand_list.append(row)
 brand_list =  json.dumps(brand_list, ensure_ascii=False)      
 ''' '''
-FILENAME = r"A:\task\prod.csv"
+FILENAME = r"A:\git\brand\task\prod.csv"
 data_list = []
 with open(FILENAME, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 100:
+        if count != 10:
             count += 1
             data_list.append(row[:-1])
 data_list = json.dumps(data_list, ensure_ascii=False)           
@@ -68,45 +68,44 @@ payload2 = {
 
 
 
-# r = requests.post("http://localhost:32768/find", data=payload)
 # r = requests.post("http://localhost:8080/find", data=payload)
-r = requests.get("http://localhost:8080/")
-# r = requests.get(f'http://127.0.0.1:8000/brand/{payload}')
-print(r.text)
-print(r.json)
+# # r = requests.get("http://localhost:8080/")
 
-# ct = 0
-# def download():
-#     global q
-#     global ct
-#     pay = q.get()
-#     r = requests.post("http://localhost:8080/find", data=pay)
-#     # print(r.text[1:200])
-#     print(r.json)
-#     ct += 1
-#     print(ct)
-#     q.task_done()
+# print(len(r.text))
+# print(r.json)
 
-# if __name__ == "__main__":
-#     pays = [
-#         payload1,
-#         payload,
-#         payload2,
-#         payload1,
-#         payload,
-#         payload2,
-#         payload2,
-#         payload1,
-#         payload,
-#     ] * 10
-#     # fill the queue with all the urls
-#     for pay in pays:
-#         q.put(pay)
-#     # start the threads
-#     for t in range(n_threads):
-#         worker = Thread(target=download)
-#         # daemon thread means a thread that will end when the main thread ends
-#         worker.daemon = True
-#         worker.start()
-#     # wait until the queue is empty
-#     q.join()
+ct = 0
+def download():
+    global q
+    global ct
+    pay = q.get()
+    r = requests.post("http://localhost:8080/find", data=pay)
+    # print(r.text[1:200])
+    print(r.json)
+    ct += 1
+    print(ct)
+    q.task_done()
+
+if __name__ == "__main__":
+    pays = [
+        payload1,
+        payload,
+        payload2,
+        payload1,
+        payload,
+        payload2,
+        payload2,
+        payload1,
+        payload,
+    ]
+    # fill the queue with all the urls
+    for pay in pays:
+        q.put(pay)
+    # start the threads
+    for t in range(n_threads):
+        worker = Thread(target=download)
+        # daemon thread means a thread that will end when the main thread ends
+        worker.daemon = True
+        worker.start()
+    # wait until the queue is empty
+    q.join()

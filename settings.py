@@ -6,6 +6,10 @@ BASE_DIR = pathlib.Path(__file__).parent.parent
 # Potential problem with defining base directory. Just remove / 'brand' /
 config_path = BASE_DIR / 'brand' / 'config' / 'config.yaml'
 
+#docker
+# config_path = BASE_DIR / 'app' / 'config' / 'config.yaml'
+
+
 '''
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Extracting data from a config file

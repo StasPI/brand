@@ -32,6 +32,7 @@ payload = {
 r = requests.post("http://localhost:8080/find", data=payload)
 
 print(r.json)
+print(len(r.text))
 data = json.loads(r.text)
 first_row = ['seller', 'name_of_product', 'id',
      'exact_match_brand', 'probable_match_brand', 'status']
@@ -40,7 +41,7 @@ data.insert(0, first_row)
 
  
 
-myFile = open(r"A:\git\brand\task\itogo.csv", 'w')
+myFile = open(r"A:\git\brand\task\itogo1.csv", 'w')
 with myFile:
     writer = csv.writer(myFile, lineterminator='\n')
     writer.writerows(data)
