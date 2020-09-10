@@ -46,3 +46,34 @@ asyncio - DEBUG - Using proactor: IocpProactor
 aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:57:50 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
 aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:58:16 +0000] "POST /find HTTP/1.1" 200 16944714 "-" "python-requests/2.24.0"
 aiohttp.access - INFO - 127.0.0.1 [06/Sep/2020:22:59:23 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:38:24 +0000] "GET /favicon.ico HTTP/1.1" 404 172 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:38:30 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:38:31 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+aiohttp.server - ERROR - Error handling request
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 61, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 30, in launch_processors
+    async with Pool(cpu_count()) as p:
+AttributeError: __aexit__
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:39:22 +0000] "POST /find HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:39:54 +0000] "GET / HTTP/1.1" 200 412 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.125 YaBrowser/20.8.2.92 Yowser/2.5 Safari/537.36"
+aiohttp.server - ERROR - Error handling request
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 61, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 30, in launch_processors
+    async with Pool(cpu_count()) as p:
+AttributeError: __aexit__
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:40:24 +0000] "POST /find HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [08/Sep/2020:18:41:55 +0000] "POST /find HTTP/1.1" 200 16944714 "-" "python-requests/2.24.0"

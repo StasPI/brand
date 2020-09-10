@@ -6,7 +6,7 @@ from multiprocessing import Pool, cpu_count
 from aiohttp import web
 
 from main_handler.handler import BrandScanner
-from settings import config
+from config.settings import config
 
 
 '''
@@ -40,12 +40,11 @@ async def handle_get(request):
     
     brand_info = 'An array of the form [["brand name", "id"], [...]] is passed. Order is important!'
     data_info = 'An array of the form [["name of the organization", "name of product", "id"], [...]] is passed. Order is important!'
-    ip_info = 'Optional parameters.'
+    token = 'Login token.'
     response_obj = {'brand': brand_info,
                     'data': data_info,
-                    'ip': ip_info}
+                    'token': token}
     return web.Response(text=json.dumps(response_obj))
-    # return web.Response(text=response_obj)
 
 
 async def handle_post(request):
@@ -59,6 +58,7 @@ async def handle_post(request):
     final_data = await request.post()
     data = json.loads(final_data['data'])
     brand = json.loads(final_data['brand'])
+    token = json.loads(final_data['token'])
     final_data = await launch_processors(brand, data)
     return web.Response(text=json.dumps(final_data, ensure_ascii=False))
 

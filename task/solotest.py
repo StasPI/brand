@@ -21,12 +21,12 @@ with open(file_prod, "r", newline="") as file:
 
 data_list = json.dumps(data_list, ensure_ascii=False)
 ''' '''
-ip = json.dumps('primer', ensure_ascii=False)
+token = json.dumps('token', ensure_ascii=False)
 
 payload = {
     "brand": brand_list,
     "data": data_list,
-    'ip': 'primer'
+    'token': 'token'
 }
 ''' '''
 r = requests.post("http://localhost:8080/find", data=payload)
