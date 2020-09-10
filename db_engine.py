@@ -1,4 +1,3 @@
-# from db_setup.db_connect import db_connect
 from config.settings import config
 import asyncio
 import asyncpg
@@ -24,24 +23,19 @@ class db_engine():
         self.host = host
         self.port = port
 
-    async def connect(self, command):
+    async def verification (self, user_pass):
         conn = await asyncpg.connect(user=self.user,
                                      password=self.password,
                                      database=self.database,
                                      host=self.host,
                                      port=self.port)
-        values = await conn.fetchval(command)
+        values = await conn.fetchval('select name from brand where name = $1', user_pass)
         await conn.close()
         return values
-    
-    async def in_pass(self, pass):
-        value = await self.connect(command)
-        return value
 
 
 connect = db_engine()
-a = connect.in_pass(fr''' select name from brand where name = '7fd80-29aff' ''')
+user_pass = '7fd80-29aff'
 
-loop = asyncio.get_event_loop()
-b = loop.run_until_complete(a)
-print(b)
+a = asyncio.get_event_loop().run_until_complete(connect.verification(user_pass))
+print(a)
