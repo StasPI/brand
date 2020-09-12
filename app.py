@@ -19,6 +19,18 @@ handle_get(request)
 handle_post(request)
 '''
 
+async def adding_headers(final_data):
+    '''
+    Adds headers to the response, as the first element in the array. 
+    
+    It makes sense to track on the client. Also, when changing the main_handler 
+    module (handler), it is necessary to change this function.
+    '''
+    
+    headers_row = ['seller', 'name_of_product', 'id',
+     'exact_match_brand', 'probable_match_brand', 'status']
+    final_data.insert(0, headers_row)
+    return final_data
 
 async def launch_processors(brand, data):
     '''Launch of the main brand search module'''
@@ -60,6 +72,7 @@ async def handle_post(request):
     brand = json.loads(final_data['brand'])
     token = json.loads(final_data['token'])
     final_data = await launch_processors(brand, data)
+    final_data = await adding_headers(final_data)
     return web.Response(text=json.dumps(final_data, ensure_ascii=False))
 
 
