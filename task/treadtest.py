@@ -1,7 +1,7 @@
 from queue import Queue
 from threading import Thread
 import csv
-import json
+import ujson
 import requests
 q = Queue()
 n_threads = 10
@@ -14,7 +14,7 @@ with open(FILENAME, "r", newline="", encoding='utf-8') as file:
     reader = csv.reader(file)
     for row in reader:
         brand_list.append(row)
-brand_list =  json.dumps(brand_list, ensure_ascii=False)      
+brand_list =  ujson.dumps(brand_list, ensure_ascii=False)      
 ''' '''
 FILENAME = r"A:\git\brand\task\prod.csv"
 data_list = []
@@ -25,7 +25,7 @@ with open(FILENAME, "r", newline="") as file:
         if count != 10:
             count += 1
             data_list.append(row[:-1])
-data_list = json.dumps(data_list, ensure_ascii=False)           
+data_list = ujson.dumps(data_list, ensure_ascii=False)           
 ''' '''
 data_list1 = []
 with open(FILENAME, "r", newline="") as file:
@@ -35,7 +35,7 @@ with open(FILENAME, "r", newline="") as file:
         if count != 1000:
             count += 1
             data_list1.append(row[:-1])
-data_list1 = json.dumps(data_list1, ensure_ascii=False)            
+data_list1 = ujson.dumps(data_list1, ensure_ascii=False)            
 ''' '''
 data_list2 = []
 with open(FILENAME, "r", newline="") as file:
@@ -45,9 +45,8 @@ with open(FILENAME, "r", newline="") as file:
         if count != 1000:
             count += 1
             data_list2.append(row[:-1])
-data_list2 = json.dumps(data_list2, ensure_ascii=False)   
+data_list2 = ujson.dumps(data_list2, ensure_ascii=False)   
 ''' '''
-ip = json.dumps('primer', ensure_ascii=False)
         
 payload = {
     "brand": brand_list,
@@ -63,13 +62,6 @@ payload2 = {
 }
 
 
-
-
-# r = requests.post("http://localhost:8080/find", data=payload)
-# # r = requests.get("http://localhost:8080/")
-
-# print(len(r.text))
-# print(r.json)
 
 ct = 0
 def download():

@@ -1,6 +1,5 @@
-import json
-
 from rapidfuzz import fuzz
+
 '''
 Main processing module.
 '''

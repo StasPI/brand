@@ -1,13 +1,15 @@
-import json
-import logging
 import asyncio
+import logging
 from multiprocessing import Pool, cpu_count
 from sys import getsizeof
 
 from aiohttp import web
 
+import ujson
 from config.settings import config
 from main_handler.handler import BrandScanner
+
+
 '''
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     App
@@ -57,7 +59,7 @@ async def handle_get(request):
     data_info = 'An array of the form [["name of the organization", "name of product", "id"], [...]] is passed. Order is important!'
     token = 'Login token.'
     response_obj = {'brand': brand_info, 'data': data_info, 'token': token}
-    return web.Response(text=json.dumps(response_obj))
+    return web.Response(text=ujson.dumps(response_obj))
 
 
 async def handle_post(request):
@@ -69,11 +71,11 @@ async def handle_post(request):
     '''
 
     final_data = await request.post()
-    data = json.loads(final_data['data'])
-    brand = json.loads(final_data['brand'])
+    data = ujson.loads(final_data['data'])
+    brand = ujson.loads(final_data['brand'])
     final_data = await launch_processors(brand, data)
     final_data = await adding_headers(final_data)
-    return web.Response(text=json.dumps(final_data, ensure_ascii=False))
+    return web.Response(text=ujson.dumps(final_data, ensure_ascii=False))
 
 
 '''API logging.'''
@@ -100,7 +102,8 @@ def run_server():
     loop.run_until_complete(runner.setup())
     site = web.TCPSite(runner,
                        host=config['app']['host'],
-                       port=config['app']['port'])
+                       port=config['app']['port'],
+                       shutdown_timeout=config['app']['shutdown_timeout'])
     loop.run_until_complete(site.start())
     loop.run_forever()
 
