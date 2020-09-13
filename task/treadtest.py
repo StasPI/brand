@@ -52,17 +52,14 @@ ip = json.dumps('primer', ensure_ascii=False)
 payload = {
     "brand": brand_list,
     "data": data_list,
-    'token': ip
 }
 payload1 = {
     "brand": brand_list,
     "data": data_list1,
-    'token': ip
 }
 payload2 = {
     "brand": brand_list,
     "data": data_list2,
-    'token': ip
 }
 
 

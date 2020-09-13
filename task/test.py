@@ -1,6 +1,7 @@
 import csv
 import json
 import requests
+from sys import getsizeof
 
 ''' '''
 file_brand = r"A:\git\brand\task\brand.csv"
@@ -18,32 +19,27 @@ with open(file_prod, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 10:
+        if count != 100000:
             count += 1
             data_list.append(row[:-1])
 data_list = json.dumps(data_list, ensure_ascii=False)
+
 ''' '''
 token = json.dumps('tok', ensure_ascii=False)
 
-payload = {
+
+json_data = {
     "brand": brand_list,
     "data": data_list,
+}
+
+params = {
+    "size": getsizeof(data_list),
     'token': token
 }
 ''' '''
-r = requests.post("http://localhost:8080/find", data=payload)
+
+r = requests.post("http://localhost:8080/find",params=params, data=json_data)
 
 print(r.json)
-print(r.text)
-# data = json.loads(r.text)
-# first_row = ['seller', 'name_of_product', 'id',
-#      'exact_match_brand', 'probable_match_brand', 'status']
-# data.insert(0, first_row)
-''' '''
-
- 
-
-# myFile = open(r"A:\git\brand\task\itogo1.csv", 'w')
-# with myFile:
-#     writer = csv.writer(myFile, lineterminator='\n')
-#     writer.writerows(data)
+# print(r.text)
