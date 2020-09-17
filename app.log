@@ -1,1 +1,275 @@
 asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:05:20 +0000] "POST /find?size=1870&token=%22tok%22 HTTP/1.1" 200 1670 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:06:15 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:11:58 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:13:33 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:15:38 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:17:47 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(
+  File "a:\git\brand\main_handler\handler.py", line 52, in fast_string_comparison
+    exact_match_brand = list(set(self.brand) & set(product_name))
+NameError: name 'self' is not defined
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+NameError: name 'self' is not defined
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:20:05 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(
+  File "a:\git\brand\main_handler\handler.py", line 52, in fast_string_comparison
+    exact_match_brand = list(set(self.brand) & set(product_name))
+NameError: name 'self' is not defined
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+NameError: name 'self' is not defined
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:21:06 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(product_name)
+  File "a:\git\brand\main_handler\handler.py", line 52, in fast_string_comparison
+    exact_match_brand = list(set(self.brand) & set(product_name))
+NameError: name 'self' is not defined
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+NameError: name 'self' is not defined
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:22:29 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(product_name)
+TypeError: fast_string_comparison() missing 1 required positional argument: 'product_name'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+TypeError: fast_string_comparison() missing 1 required positional argument: 'product_name'
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:24:29 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(
+TypeError: fast_string_comparison() missing 1 required positional argument: 'product_name'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+TypeError: fast_string_comparison() missing 1 required positional argument: 'product_name'
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:26:06 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 105, in handler
+    exact_match_brand, exclusive_matches_brand = self.fast_string_comparison(
+  File "a:\git\brand\main_handler\handler.py", line 52, in fast_string_comparison
+    exact_match_brand = list(set(self.brand) & set(product_name))
+NameError: name 'self' is not defined
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 76, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 48, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+NameError: name 'self' is not defined
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:26:53 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:27:38 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:29:39 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:37:53 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:40:02 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 11390263 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:44:29 +0000] "POST /find?size=13594&token=%22tok%22 HTTP/1.1" 200 11590 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:45:14 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:46:55 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:57:33 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:22:59:03 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:00:29 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:02:34 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:03:40 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:04:51 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:06:59 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:08:47 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:10:03 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:12:28 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:14:07 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.server - ERROR - Error handling request
+multiprocessing.pool.RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 125, in worker
+    result = (True, func(*args, **kwds))
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 48, in mapstar
+    return list(map(*args))
+  File "a:\git\brand\main_handler\handler.py", line 111, in handler
+    exact_match_brand.append(brand_name)
+AttributeError: 'set' object has no attribute 'append'
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_protocol.py", line 418, in start
+    resp = await task
+  File "a:\git\brand\env\lib\site-packages\aiohttp\web_app.py", line 458, in _handle
+    resp = await handler(request)
+  File "a:\git\brand\app.py", line 75, in handle_post
+    final_data = await launch_processors(brand, data)
+  File "a:\git\brand\app.py", line 47, in launch_processors
+    final_data = p.map(hend.handler, data)
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 364, in map
+    return self._map_async(func, iterable, mapstar, chunksize).get()
+  File "C:\Users\algorithm\AppData\Local\Programs\Python\Python38\lib\multiprocessing\pool.py", line 768, in get
+    raise self._value
+AttributeError: 'set' object has no attribute 'append'
+aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:15:26 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor

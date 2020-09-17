@@ -2,6 +2,7 @@ import csv
 import ujson
 import requests
 from sys import getsizeof
+import time
 
 ''' '''
 file_brand = r"A:\git\brand\task\brand.csv"
@@ -19,7 +20,7 @@ with open(file_prod, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 10:
+        if count != 100000:
             count += 1
             data_list.append(row[:-1])
 data_list = ujson.dumps(data_list, ensure_ascii=False)
@@ -39,6 +40,8 @@ params = {
 }
 ''' '''
 
+start_time = time.time()
 r = requests.post("http://localhost:8080/find",params=params, data=json_data)
 print(r.json)
+print("--- %s seconds ---" % (time.time() - start_time))
 print(r.text[1:400])

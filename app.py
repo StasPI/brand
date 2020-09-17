@@ -39,7 +39,6 @@ async def adding_headers(final_data):
 
 async def launch_processors(brand, data):
     '''Launch of the main brand search module'''
-
     hend = BrandScanner(brand, data)
     data, brand = hend.retrieving_objects()
     # multiprocessing

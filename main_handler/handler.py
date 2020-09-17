@@ -48,10 +48,12 @@ class BrandScanner():
         in the product description.
         Returns a list with matches and a list without matches.
         '''
-
         product_name = product_name.split()
         exact_match_brand = list(set(brand) & set(product_name))
-        exclusive_matches_brand = tuple(set(brand) ^ set(exact_match_brand))
+        if exact_match_brand:
+            exclusive_matches_brand = set(brand) ^ set(exact_match_brand)
+        else:
+            exclusive_matches_brand = brand
         return exact_match_brand, exclusive_matches_brand
 
     @staticmethod
