@@ -20,7 +20,7 @@ with open(file_prod, "r", newline="") as file:
     count = 0
     reader = csv.reader(file)
     for row in reader:
-        if count != 1000:
+        if count != 100000:
             count += 1
             data_list.append(row[:-1])
 data_list = ujson.dumps(data_list, ensure_ascii=False)

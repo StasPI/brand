@@ -290,3 +290,10 @@ asyncio - DEBUG - Using proactor: IocpProactor
 asyncio - DEBUG - Using proactor: IocpProactor
 aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:17:09 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
 aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:18:09 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:21:41:46 +0000] "POST /find?size=151144&token=%22tok%22 HTTP/1.1" 200 128201 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:21:42:10 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:21:52:08 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:21:54:09 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
