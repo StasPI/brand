@@ -273,3 +273,20 @@ Traceback (most recent call last):
 AttributeError: 'set' object has no attribute 'append'
 aiohttp.access - INFO - 127.0.0.1 [17/Sep/2020:23:15:26 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 500 244 "-" "python-requests/2.24.0"
 asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:18:58:09 +0000] "GET / HTTP/1.1" 200 402 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 YaBrowser/20.8.3.115 Yowser/2.5 Safari/537.36"
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:18:58:09 +0000] "GET /favicon.ico HTTP/1.1" 404 172 "http://localhost:8080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/84.0.4147.135 YaBrowser/20.8.3.115 Yowser/2.5 Safari/537.36"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:19:32:18 +0000] "POST /find?size=151144&token=%22tok%22 HTTP/1.1" 200 128201 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:19:32:57 +0000] "POST /find?size=151144&token=%22tok%22 HTTP/1.1" 200 128201 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:19:52:56 +0000] "POST /find?size=13594&token=%22tok%22 HTTP/1.1" 200 11590 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:06:41 +0000] "POST /find?size=13594&token=%22tok%22 HTTP/1.1" 200 11590 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:08:58 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+asyncio - DEBUG - Using proactor: IocpProactor
+asyncio - DEBUG - Using proactor: IocpProactor
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:17:09 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"
+aiohttp.access - INFO - 127.0.0.1 [18/Sep/2020:20:18:09 +0000] "POST /find?size=14713584&token=%22tok%22 HTTP/1.1" 200 12483973 "-" "python-requests/2.24.0"

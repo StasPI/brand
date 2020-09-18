@@ -1,6 +1,7 @@
 import csv
 import ujson
 import requests
+import time
 
 ''' '''
 file_brand = r"A:\git\brand\task\brand.csv"
@@ -28,7 +29,9 @@ payload = {
     "data": data_list,
 }
 ''' '''
+start_time = time.time()
 r = requests.post("http://localhost:8080/find", data=payload)
+print("--- %s seconds ---" % (time.time() - start_time))
 
 print(r.json)
 print(len(r.text))

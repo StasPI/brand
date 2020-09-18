@@ -1,7 +1,6 @@
 import asyncio
 import logging
 from multiprocessing import Pool, cpu_count
-from sys import getsizeof
 
 from aiohttp import web
 
